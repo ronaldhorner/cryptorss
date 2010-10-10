@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  <TextView android:id="@+id/feed_title"
+  	android:layout_width="220dip"
+  	android:layout_height="wrap_content"
+  	android:ellipsize="end"
+  	android:maxLines="1"
+  	android:scrollHorizontally="true"
+  	android:textSize="20dip"
+  	android:textColor="#FFF"
+  	android:layout_alignParentLeft="true"
+  	/>
+  <TextView android:id="@+id/feed_fraction"
+  	android:layout_width="100dip"
+  	android:layout_height="wrap_content"
+  	android:textSize="20dip"
+  	android:textColor="#FFF"
+  	android:layout_alignParentRight="true"
+  	android:gravity="right"
+  />
+  <TextView android:id="@+id/feed_url"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:textSize="10dip"
+  	android:textColor="#FFF"
+ 	android:ellipsize="end"
+  	android:maxLines="1"
+  	android:scrollHorizontally="true"
+  	android:layout_alignParentBottom="true"
+  	android:layout_below="@+id/feed_fraction"
+  	android:gravity="left"
+  	android:paddingBottom="2dip"
+  />
+</RelativeLayout>

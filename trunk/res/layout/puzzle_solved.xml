@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+	<ScrollView android:id="@+id/summary_scroll"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_above="@+id/stats_block" >
+		<TextView android:id="@+id/summary" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:paddingBottom="5dip"
+			android:textSize="20dip" 
+			android:textColor="#EEE"/>
+	</ScrollView>
+
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" 
+		android:layout_height="60dip"
+		android:layout_alignParentBottom="true"
+		android:id="@+id/stats_block">
+		<TextView android:id="@+id/score" 
+		    android:layout_width="60dip"
+			android:layout_height="60dip" 
+			android:textColor="#FFF"
+			android:textStyle="bold"
+			android:shadowColor="#222"
+			android:shadowRadius="1"
+			android:textSize="50dip"
+			android:gravity="center"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentBottom="true" />
+			
+		<Button android:id="@+id/done" 
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:text="Done"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentBottom="true" />
+			
+		<Button android:id="@+id/read" 
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:text="Read"
+			android:layout_toLeftOf="@+id/done"
+			android:layout_alignParentBottom="true" />
+				
+		<TextView android:id="@+id/time" 
+		    android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:textColor="#FFF"
+			android:paddingBottom="5dip"  
+			android:layout_toRightOf="@+id/score"
+			android:layout_toLeftOf="@+id/read" 
+			android:layout_above="@+id/avg"/>
+			
+		<TextView android:id="@+id/avg" 
+		    android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:textColor="#FFF"
+			android:layout_alignParentBottom="true"
+			android:layout_toRightOf="@+id/score"
+			android:layout_toLeftOf="@+id/read" />
+	</RelativeLayout>
+</RelativeLayout>

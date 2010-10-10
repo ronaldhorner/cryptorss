@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical">
+  <ScrollView 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		 >
+		 <LinearLayout
+		  android:layout_width="fill_parent"
+		  android:layout_height="fill_parent"
+		  android:orientation="vertical">
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:paddingBottom="2dip"
+			android:text="What Is A Cryptogram?"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="15dip"
+			android:text="A Cryptogram is an encrypted message once used for sending secret letters and now is a popular word game.  To solve a cryptogram you must figure out how the mapping of encrypted text matches to the secret message."
+		  />
+		  
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:paddingBottom="2dip"
+			android:text="Where Do You Get The RSS Feeds?"
+		  />
+		  <TextView
+		    android:id="@+id/linkify_me"
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="15dip"
+			android:text="Popular news sites, blogs, and other web sites will publish their content through an RSS feed.  Simply look for the link to the RSS Feed and enter the address into the Add Feed dialog."
+		  />
+		  
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:paddingBottom="2dip"
+			android:text="Are There Any Clues?"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="15dip"
+			android:text="The 'clue' button on the soft keyboard (or spacebar on the physical keyboard) will display R, S, T, L, N, and E, one letter with each press without time penalty.  The clue button will continue to show the rest of the vowels for a time penalty."
+		  />
+		  
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:paddingBottom="2dip"
+			android:text="Why Is There Only A Snippet Of The Message?"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="15dip"
+			android:text="The cryptogram is limited to 200 characters.  This helps keep the cryptogram small enough to be manageable and large enough to be solved without too much wild guessing."
+		  />
+		  
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:paddingBottom="2dip"
+			android:text="How Does Scoring Work?"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="15dip"
+			android:text="In CryptoRSS you're playing against your own skill.  Once you have solved enough puzzles CryptoRSS will score you against your average time.  The better you get at solving puzzles the harder it will be to gain a high score."
+		  />
+		  
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:paddingBottom="2dip"
+			android:text="Why's The Puzzle Displayed In Blocks Of Letters?"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="15dip"
+			android:text="Traditional cryptograms were displayed in blocks of five letters which makes it harder to easily identify words.  CryptoRSS implements the same concept, using blocks of four, to provide a challenging puzzle for you!"
+		  />
+		  
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:paddingBottom="2dip"
+			android:text="Tips For Solving Cryptograms"
+		  />L
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="5dip"
+			android:text="Look at the title of the cryptogram for ideas on what the message might be about."
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="5dip"
+			android:text="Use letters in order of how often they show up in the English Language. The order of letters from most frequent to least is: E, T, A, O, I, N, S, H, R, D, L, U, C, W, M, F, Y, G, P, B, V, K, J, X, Q, Z."
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="5dip"
+			android:text="Look for letter patterns.  THERE, THE, and THEN all share the first three letters.  Use that as a way to find other words."
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="20dip"
+			android:paddingBottom="2dip"
+			android:text="That (or high, says, else, dead, died)"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="20dip"
+			android:paddingBottom="2dip"
+			android:text="There/Where/These (in any case you've identified 'h' and 'e')"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="20dip"
+			android:paddingBottom="2dip"
+			android:text="People"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="20dip"
+			android:paddingBottom="2dip"
+			android:text="Always"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="20dip"
+			android:paddingBottom="2dip"
+			android:text="Never (or state, fewer, color, level)"
+		  />
+		  
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:paddingBottom="2dip"
+			android:text="What is CryptoRSS's License?"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="2dip"
+			android:text="CryptoRSS is licensed under the GPL you can find a copy of the license at the following link."
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="15dip"
+			android:text="http://www.gnu.org/licenses/gpl.html"
+		  />
+		  
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:paddingBottom="2dip"
+			android:text="Where Can I Get The Source Code?"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="15dip"
+			android:text="http://code.google.com/p/cryptorss/"
+		  />
+	  </LinearLayout>
+  </ScrollView>
+</LinearLayout>

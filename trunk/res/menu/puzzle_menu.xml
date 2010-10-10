@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:title="Next" android:id="@+id/quit_puzzle" android:visible="true" android:enabled="true"></item>
+<item android:title="Clear" android:id="@+id/clear_puzzle" android:visible="true"></item>
+<item android:title="Errors" android:id="@+id/show_errors" android:visible="true"></item>
+</menu>

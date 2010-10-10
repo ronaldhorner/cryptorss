@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, CryptoRSS!</string>
+    <string name="app_name">CryptoRSS</string>
+    <string name="cryptorss_name">CryptoRSS - The Cryptogram News Reader</string>
+	<string name="entries_screen_title">Latest News</string>
+	<string name="faq">Frequently Asked Questions</string>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/com.horner.ron.cryptorss"
+	android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+	<com.admob.android.ads.AdView  
+          android:id="@+id/ad" 
+          android:layout_width="fill_parent" 
+          android:layout_height="wrap_content"
+          android:layout_alignParentTop="true"
+          app:backgroundColor="#000000"
+          app:primaryTextColor="#FFFFFF"
+          app:secondaryTextColor="#CCCCCC"
+          app:keywords="game music cryptogram word puzzle android mobile"
+        />
+
+	<android.inputmethodservice.KeyboardView
+	                android:id="@+id/playKeyboard"
+	                android:layout_alignParentBottom="true"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	        />
+	        
+	<ScrollView android:id="@+id/scrollview"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/playKeyboard"
+		android:layout_below="@+id/ad"
+		android:scrollbars="vertical"
+		android:scrollbarFadeDuration="2500">
+	</ScrollView>
+	
+	
+</RelativeLayout>
+<!-- android:columnWidth="7%" -->
+<!--
+<GridView android:id="@+id/GridView" 
+		android:layout_width="fill_parent" 
+		android:layout_height="300dip" 				
+		android:padding="0dp"
+	    android:verticalSpacing="0dp"			    
+	    android:horizontalSpacing="1dp"
+	    android:numColumns="15"			    
+	    android:stretchMode="columnWidth"			    
+	    android:gravity="center"
+	    android:isScrollContainer="true"
+	    android:scrollingCache="true"
+	    android:scrollbarAlwaysDrawVerticalTrack="true"
+		xmlns:android="http://schemas.android.com/apk/res/android">
+	</GridView>
+-->

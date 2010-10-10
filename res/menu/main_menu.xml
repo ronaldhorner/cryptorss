@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:title="Add Feed" android:id="@+id/add_feed_menu" android:visible="true" android:enabled="true"></item>
+  <item android:title="F.A.Q." android:id="@+id/faq_feed_menu" android:visible="true" android:enabled="true"></item>
+</menu>

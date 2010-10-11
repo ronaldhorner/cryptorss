@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content">
+	
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:textSize="14dip"
+		android:paddingBottom="10dip"
+		android:text="Click on a Feed to start playing"/>
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:textSize="14dip"
+		android:paddingBottom="10dip"
+		android:text="Click Menu for other options"/> 
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:textSize="14dip"
+		android:paddingBottom="15dip"
+		android:text="Don't forget to read the About"/>
+	
+	<TextView 
+		android:id="@+id/splash_game_mode"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:textSize="14dip"
+		android:text="Game Mode : " />
+    <TextView 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:textSize="10dip"
+		android:paddingBottom="15dip"
+		android:text="Game Mode can be changed in the Mode menu option" />
+    
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:orientation="vertical">
+		
+		<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+			<CheckBox 
+				android:id="@+id/splash_checkbox"
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:checked="true"
+				android:text="Show Splash On Startup"
+				android:gravity="center" />
+		</RelativeLayout>
+		
+		<Button 
+			android:id="@+id/splash_button" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:layout_marginTop="15dip"
+			android:text="Save" />
+	</LinearLayout>
+</LinearLayout>

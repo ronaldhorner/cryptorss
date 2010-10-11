@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.text.TextUtils.TruncateAt;
-import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.horner.ron.cryptorss.R;
 
 public class EntryListAdapter extends BaseAdapter {
 
@@ -64,27 +66,31 @@ public class EntryListAdapter extends BaseAdapter {
      * @param arg2 unused
      */
     public View getView(int pos, View view, ViewGroup arg2) {
+        
         if (view == null){
-            view = new TextView(context);
+            view = new RelativeLayout(context);
         } 
         
-        TextView tv = (TextView) view;
-        String title = entries.get(pos).getTitle();
-        tv.setText(title);
-        tv.setLines(1);
-        tv.setHorizontallyScrolling(true);
-        tv.setSingleLine(true);
-        tv.setPadding(10, 0, 10, 0);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-        tv.setEllipsize(TruncateAt.END);
-        tv.setTextColor(Color.WHITE);
+        // get the view as a Relative Layout and inflate the stored layout into it
+        RelativeLayout tl = (RelativeLayout) view;
+        LayoutInflater.from(context).inflate(R.layout.entry, tl);
         
-        if (entries.get(pos).getState() == 1)
+        // set the title of the TextView
+        TextView tv = (TextView)tl.findViewById(R.id.entry_title);
+        String name = entries.get(pos).getTitle();
+        tv.setText(name);
+        
+        // set the url of the TextView
+        TextView uv = (TextView)tl.findViewById(R.id.entry_url);
+        String url = entries.get(pos).getUrl();
+        uv.setText(url);
+
+        if (entries.get(pos).getState() == 1){
             tv.setTextColor(Color.GRAY);
+            uv.setTextColor(Color.GRAY);
+        }
         
-        tv.invalidate();
-        
-        return tv;
+        return tl;
     }
 
 }

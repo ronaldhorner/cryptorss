@@ -54,6 +54,8 @@ public class PuzzleScreen extends Activity {
     /** reference to the SecureRandom */
     private SecureRandom srd = new SecureRandom();
 
+    private boolean isLaunchPuzzleSolved = false;
+    
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,19 +73,10 @@ public class PuzzleScreen extends Activity {
         keyboardView.setOnKeyboardActionListener(new OnKeyboardActionListener() {   
             public void onKey(int primaryCode, int[] keyCodes) {
                 long eventTime = System.currentTimeMillis();
-                if (Persistence.getInstance().getTime() == 0)
-                    Persistence.getInstance().setTime(eventTime);
                 KeyEvent event = new KeyEvent(eventTime, eventTime,
                         KeyEvent.ACTION_DOWN, primaryCode, 0, 0, 0,
                         0, KeyEvent.FLAG_SOFT_KEYBOARD | KeyEvent.FLAG_KEEP_TOUCH_MODE);
-                String c = (char)event.getUnicodeChar() + "";
-
-                if (event.getKeyCode() == KeyEvent.KEYCODE_SPACE) {
-                    table.showClue();
-                } else {
-                    if (table.updateLetters(c))
-                        self.launchPuzzleSolved();
-                }
+                PuzzleScreen.this.onKeyDown(event.getKeyCode(), event);
             }
             
             // we don't use any of these but we need to have them instantiated
@@ -136,7 +129,10 @@ public class PuzzleScreen extends Activity {
         } 
         if (event.getKeyCode() == KeyEvent.KEYCODE_SPACE) {
             table.showClue(); // show a clue
-        } else if (c.matches("[a-zA-Z]")) { 
+            System.out.println("PuzzleScreen.onKeyDown.checkSolution() ::" + table.checkSolution());
+            if(table.checkSolution())
+                self.launchPuzzleSolved();
+        } else if (c.matches("[a-zA-Z\\s]")) { 
             if (table.updateLetters(c)) // update for alpha characters
                 self.launchPuzzleSolved();
         } else if (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_DOWN || event.getKeyCode() == KeyEvent.KEYCODE_DPAD_RIGHT){
@@ -153,14 +149,17 @@ public class PuzzleScreen extends Activity {
      * If the puzzle is solved launch the PuzzleSolved activity
      */
     protected void launchPuzzleSolved() {
-        Intent intent = new Intent(this, PuzzleSolved.class);
-
-        Bundle bundle = new Bundle();
-        bundle.putLong("time", System.currentTimeMillis()-Persistence.getInstance().getTime());
-        bundle.putLong("entryId", this.getIntent().getExtras().getLong("entryId"));
-        intent.putExtras(bundle);
-
-        this.startActivityForResult(intent, NEXT_PUZZLE_RESULT);
+        if (!isLaunchPuzzleSolved){
+            Intent intent = new Intent(this, PuzzleSolved.class);
+    
+            Bundle bundle = new Bundle();
+            bundle.putLong("time", System.currentTimeMillis()-Persistence.getInstance().getTime());
+            bundle.putLong("entryId", this.getIntent().getExtras().getLong("entryId"));
+            intent.putExtras(bundle);
+    
+            this.startActivityForResult(intent, NEXT_PUZZLE_RESULT);
+            isLaunchPuzzleSolved = true;
+        }
     }
 
     @Override
@@ -246,8 +245,11 @@ public class PuzzleScreen extends Activity {
                     pt = pt.substring(0, pt.lastIndexOf(" "));
                 }
             }
-            // remove all the non word characters
-            pt = pt.replaceAll("\\W", "");
+            
+            if (dbh.getGameMode() == CryptoTableLayout.NORMAL_MODE){
+                // remove all the non word characters
+                pt = pt.replaceAll("\\W", "");
+            }
             
             // generate the puzzle text
             ArrayList<String> puzzleText = generatePuzzleText(pt);

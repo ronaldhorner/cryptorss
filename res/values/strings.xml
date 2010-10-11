@@ -4,5 +4,5 @@
     <string name="app_name">CryptoRSS</string>
     <string name="cryptorss_name">CryptoRSS - The Cryptogram News Reader</string>
 	<string name="entries_screen_title">Latest News</string>
-	<string name="faq">Frequently Asked Questions</string>
+	<string name="faq">About - CryptoRSS</string>
 </resources>

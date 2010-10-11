@@ -29,8 +29,11 @@ import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnCreateContextMenuListener;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -65,6 +68,12 @@ public class CryptoRSS extends Activity {
 
     /** id for the rename context menu option */
     private static final int RENAME_FEED = 105;
+    
+    /** id for the game mode dialog */
+    private static final int MODE_DIALOG = 106;
+    
+    /** id for the splash dialog */
+    private static final int SPLASH_DIALOG = 107;
     
     /** global reference to the Eddie RSS Parser */
     private Parser parser = new Parser();
@@ -102,6 +111,8 @@ public class CryptoRSS extends Activity {
         });
         
         updateList();
+        
+        showDialog(SPLASH_DIALOG);
     }
     
     @Override
@@ -174,6 +185,9 @@ public class CryptoRSS extends Activity {
         case R.id.faq_feed_menu : // launch the Faq activity 
             Intent intent = new Intent(CryptoRSS.this, Faq.class);
             CryptoRSS.this.startActivity(intent);
+            return true;
+        case R.id.mode_feed_menu : // fire off the add feed dialog
+            showDialog(MODE_DIALOG);
             return true;
         default :
             return super.onOptionsItemSelected(item);
@@ -253,6 +267,57 @@ public class CryptoRSS extends Activity {
                 }
             });
             return builder.create();
+        } else if (id == MODE_DIALOG){
+            // create a basic dialog to handle getting an rss feed url
+            // from the user
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Select a Game Mode");
+            builder.setCancelable(true);
+            final CharSequence[] items = {"Easy", "Normal"};
+
+            builder.setSingleChoiceItems(items, dh.getGameMode(), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int item) {
+                    if (item == 0){
+                        dh.setEasyMode();
+                    } else if (item == 1){
+                        dh.setNormalMode();
+                    }
+                    dismissDialog(MODE_DIALOG);
+                }
+            });
+
+            return builder.create();
+        } else if (id == SPLASH_DIALOG && dh.getShowSplash() == 1){
+            Dialog dialog = new Dialog(this);
+            // set up the content and the title
+            dialog.setContentView(R.layout.splash);
+            dialog.setTitle("Welcome to CryptoRSS");
+            
+            final DatabaseHelper dh = new DatabaseHelper(this);
+            
+            TextView gameMode = (TextView) dialog.findViewById(R.id.splash_game_mode);
+            if (dh.getGameMode() == 0)
+                gameMode.setText(gameMode.getText() + "Easy");
+            
+            if (dh.getGameMode() == 1)
+                gameMode.setText(gameMode.getText() + "Normal");
+            
+            final CheckBox checked = (CheckBox) dialog.findViewById(R.id.splash_checkbox);
+            checked.setChecked(dh.getShowSplash() == 1);
+            
+            Button save = (Button) dialog.findViewById(R.id.splash_button);
+            save.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v) {
+                    if (checked.isChecked()){
+                        dh.setShowSplash();
+                    } else {
+                        dh.setHideSplash();
+                    }
+                    dismissDialog(SPLASH_DIALOG);
+                }
+            });
+
+            return dialog;
         } else { 
             // if it's not our dialog, show it.
             return super.onCreateDialog(id);
@@ -268,9 +333,8 @@ public class CryptoRSS extends Activity {
      */
     private boolean insertEntry(long feedId, Entry e){
         boolean rval = false;
-        // strip out the html tags
-        String d = e.get("description").replaceAll("<(.|\n)*?>", " ").trim();
-        String t = e.getTitle().getValue().replaceAll("<(.|\n)*?>", " ").trim();
+        String d = e.get("description");
+        String t = e.getTitle().getValue();
         String l = e.get("link");
         // check to make sure all the needed info is present
         if (d != null && d.length() > 0 && t != null && t.length() > 0 && l != null && l.length() > 0){

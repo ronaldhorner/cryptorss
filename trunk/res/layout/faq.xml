@@ -41,6 +41,88 @@
 			android:layout_alignParentLeft="true"
 			android:textStyle="bold"
 			android:paddingBottom="2dip"
+			android:text="User Interface"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="0dip"
+			android:text="Game Mode - On the Main Screen, Click MENU -> Mode and select the desired game mode"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="0dip"
+			android:text="Add A Feed - On the Main Screen, Click MENU -> Add Feed and then enter the url of the Feed"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="0dip"
+			android:text="Update A Feed - On the Main Screen, Long Click on the Feed and select Update"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="0dip"
+			android:text="Rename A Feed - On the Main Screen, Long Click on the Feed and select Rename"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="0dip"
+			android:text="Delete A Feed - On the Main Screen, Long Click on the Feed and select Delete"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="0dip"
+			android:text="Delete an Entry - On the Entry Screen, Long Click on the Entry and select Delete"
+		  />
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:paddingLeft="10dip"
+			android:paddingBottom="15dip"
+			android:text="Delete Completed Entries - On the Entry Screen, Click MENU -> Remove Completed"
+		  />
+		  
+		  
+		  <TextView
+		    android:layout_width="fill_parent"
+		  	android:layout_height="wrap_content"
+		  	android:textColor="#FFF"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentLeft="true"
+			android:textStyle="bold"
+			android:paddingBottom="2dip"
 			android:text="Where Do You Get The RSS Feeds?"
 		  />
 		  <TextView

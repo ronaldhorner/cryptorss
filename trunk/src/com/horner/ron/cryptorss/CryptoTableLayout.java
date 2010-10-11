@@ -3,6 +3,8 @@ package com.horner.ron.cryptorss;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.horner.ron.cryptorss.database.DatabaseHelper;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.view.Display;
@@ -47,6 +49,12 @@ public class CryptoTableLayout extends TableLayout {
     /** the size of letter blocks */
     private final int BLOCK_SIZE = 4;
     
+    /** the size of letter blocks */
+    public static final int EASY_MODE = 0;
+    
+    /** the size of letter blocks */
+    public static final int NORMAL_MODE = 1;
+    
     /**
      * This constructor does all the necessary configuration for the puzzle board
      * 
@@ -84,11 +92,17 @@ public class CryptoTableLayout extends TableLayout {
         // remove all the views from the table
         removeAllViews();
         
-        // remove any extra spaces from the puzzle text
-        removeExtraSpacesFromPuzzleText();
+        DatabaseHelper dbh = new DatabaseHelper(context);
         
-        // re-layout the puzzle text
-        generatePuzzleTextLayout();
+        if (dbh.getGameMode() == EASY_MODE){
+            // remove any extra spaces from the puzzle text
+            removeExtraSpacesFromPuzzleText();
+        }
+        if (dbh.getGameMode() == NORMAL_MODE){   
+            removeAllSpacesFromPuzzleText();
+            // re-layout the puzzle text
+            generatePuzzleTextLayout();
+        }
         
         // pad out the puzzle text for cleaner display
         padPuzzleText();
@@ -283,7 +297,7 @@ public class CryptoTableLayout extends TableLayout {
      * 
      * @return true if the solution is correct
      */
-    private boolean checkSolution(){
+    public boolean checkSolution(){
         boolean rval = false;
         
         // check if the puzzle is filled in
@@ -335,17 +349,66 @@ public class CryptoTableLayout extends TableLayout {
             case 5 : showChar = "E";
                 break;
             case 6 : showChar = "A";
-                Persistence.getInstance().setTimeSpent(Persistence.getInstance().getTimeSpent() + 2000);
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 10000);
                 break;
             case 7 : showChar = "I";
-                Persistence.getInstance().setTimeSpent(Persistence.getInstance().getTimeSpent() + 4000);
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 10000);
                 break;
             case 8 : showChar = "O";
-                Persistence.getInstance().setTimeSpent(Persistence.getInstance().getTimeSpent() + 8000);
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 15000);
                 break;
             case 9 : showChar = "U";
-                Persistence.getInstance().setTimeSpent(Persistence.getInstance().getTimeSpent() + 16000);
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 15000);
                 break;
+            case 10 : showChar = "H";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 20000);
+                break;    
+            case 11 : showChar = "D"; 
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 20000);
+                break; 
+            case 12 : showChar = "C";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 13 : showChar = "W";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 14 : showChar = "M";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 15 : showChar = "F";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 16 : showChar = "Y";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 17 : showChar = "G";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 18 : showChar = "P";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 19 : showChar = "B";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 20 : showChar = "V";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 21 : showChar = "K";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 22 : showChar = "J";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 23 : showChar = "X";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 24 : showChar = "Q";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+            case 25 : showChar = "Z";
+                Persistence.getInstance().setTime(Persistence.getInstance().getTime() - 60000);
+                break;
+                
         }
        
         // if we have a clue to display then we need to update all the plain text views
@@ -370,7 +433,7 @@ public class CryptoTableLayout extends TableLayout {
      * Strips out all the spaces from the plain text so that it can be 
      * put into blocks correctly
      */
-    private void removeExtraSpacesFromPuzzleText(){
+    private void removeAllSpacesFromPuzzleText(){
         // clean up any extra spaces in the plain text
         for (int i = 0; i < plainTextViews.size()-1;){
             String curr = plainTextViews.get(i).getLetter();
@@ -381,6 +444,20 @@ public class CryptoTableLayout extends TableLayout {
             }
         }
     }
+    
+    private void removeExtraSpacesFromPuzzleText(){
+        // clean up any extra spaces in the plain text
+           for (int i = 0; i < plainTextViews.size()-1;){
+               String curr = plainTextViews.get(i).getLetter();
+               String next = plainTextViews.get(i+1).getLetter();
+               if ((curr.equals("") || curr.matches("[\\s]+"))
+                       && (next.equals("") || next.matches("[\\s]+"))){
+                   plainTextViews.remove(i+1);
+               } else {
+                   i++;
+               }
+           }
+       }
     
     /**
      * Pads out the plain text array to be divisible by ROWSIZE

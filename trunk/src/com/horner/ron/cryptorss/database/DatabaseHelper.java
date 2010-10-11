@@ -617,4 +617,132 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         System.out.println("DatabaseHelper.deleteFeedEntries() :: " + feedId);
     }
+    
+    /**
+     * Sets the game mode to Easy
+     */
+    public void setEasyMode(){
+        SQLiteDatabase db = null;
+        try {
+            db = openDataBase();
+            db.execSQL("UPDATE mode set mode = 0");
+            db.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            if (db != null){
+                db.close();
+            }
+        }
+        System.out.println("DatabaseHelper.setEasyMode() :: ");
+    }
+    
+    /**
+     * Sets the game mode to Normal
+     */
+    public void setNormalMode(){
+        SQLiteDatabase db = null;
+        try {
+            db = openDataBase();
+            db.execSQL("UPDATE mode set mode = 1");
+            db.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            if (db != null){
+                db.close();
+            }
+        }
+        System.out.println("DatabaseHelper.setNormalMode() :: ");
+    }
+    
+    /**
+     * Get the Game Mode
+     * @return 0 if easy, 1 in normal
+     */
+    public int getGameMode(){
+        int rval = -1;
+        SQLiteDatabase db = null;
+        try {
+            db = openDataBase();
+            Cursor cursor = db.rawQuery("SELECT mode FROM mode", null);
+            if (cursor.moveToNext()){
+                rval = cursor.getInt(0);
+            }
+            cursor.close();
+            db.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            if (db != null){
+                db.close();
+            }
+        }
+        System.out.println("DatabaseHelper.getGameMode() :: " + rval);
+        return rval;
+    }
+    
+    /**
+     * Sets the splash screen display to true
+     */
+    public void setShowSplash(){
+        SQLiteDatabase db = null;
+        try {
+            db = openDataBase();
+            db.execSQL("UPDATE splash set splash = 1");
+            db.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            if (db != null){
+                db.close();
+            }
+        }
+        System.out.println("DatabaseHelper.setShowSplash() :: ");
+    }
+    
+    /**
+     * Sets the game mode to Normal
+     */
+    public void setHideSplash(){
+        SQLiteDatabase db = null;
+        try {
+            db = openDataBase();
+            db.execSQL("UPDATE splash set splash = 0");
+            db.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            if (db != null){
+                db.close();
+            }
+        }
+        System.out.println("DatabaseHelper.setNormalMode() :: ");
+    }
+    
+    /**
+     * Get the Game Mode
+     * @return 0 if easy, 1 in normal
+     */
+    public int getShowSplash(){
+        int rval = 1;
+        SQLiteDatabase db = null;
+        try {
+            db = openDataBase();
+            Cursor cursor = db.rawQuery("SELECT splash FROM splash", null);
+            if (cursor.moveToNext()){
+                rval = cursor.getInt(0);
+            }
+            cursor.close();
+            db.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            if (db != null){
+                db.close();
+            }
+        }
+        System.out.println("DatabaseHelper.getGameMode() :: " + rval);
+        return rval;
+    }
 }

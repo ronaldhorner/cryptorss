@@ -1,0 +1,1 @@
+CryptoRSS uses RSS feeds to provide cryptograms to the user.
